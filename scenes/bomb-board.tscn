@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bbohusjhe4xje"]
+
+[ext_resource type="PackedScene" uid="uid://dohgvg71dhmvn" path="res://scenes/tile.tscn" id="1_bmbpl"]
+
+[node name="BombBoard" type="Node2D" unique_id=3910941]
+
+[node name="Tiles" type="Node2D" parent="." unique_id=1120035893]
+
+[node name="Row1" type="Node2D" parent="Tiles" unique_id=822794186]
+position = Vector2(64, 64)
+
+[node name="Tile3" parent="Tiles/Row1" unique_id=1779295373 instance=ExtResource("1_bmbpl")]
+
+[node name="Tile2" parent="Tiles/Row1" unique_id=1567687961 instance=ExtResource("1_bmbpl")]
+position = Vector2(256, 0)
+
+[node name="Tile" parent="Tiles/Row1" unique_id=395495693 instance=ExtResource("1_bmbpl")]
+position = Vector2(384, 0)
+
+[node name="Tile4" parent="Tiles/Row1" unique_id=461691641 instance=ExtResource("1_bmbpl")]
+position = Vector2(128, 0)
+
+[node name="Row2" type="Node2D" parent="Tiles" unique_id=659662174]
+position = Vector2(64, 192)
+
+[node name="Tile3" parent="Tiles/Row2" unique_id=388154543 instance=ExtResource("1_bmbpl")]
+
+[node name="Tile2" parent="Tiles/Row2" unique_id=1278355294 instance=ExtResource("1_bmbpl")]
+position = Vector2(256, 0)
+
+[node name="Tile" parent="Tiles/Row2" unique_id=1969067384 instance=ExtResource("1_bmbpl")]
+position = Vector2(384, 0)
+
+[node name="Tile4" parent="Tiles/Row2" unique_id=1271477830 instance=ExtResource("1_bmbpl")]
+position = Vector2(128, 0)
+
+[node name="Row3" type="Node2D" parent="Tiles" unique_id=1231652022]
+position = Vector2(64, 320)
+
+[node name="Tile3" parent="Tiles/Row3" unique_id=1176757072 instance=ExtResource("1_bmbpl")]
+
+[node name="Tile2" parent="Tiles/Row3" unique_id=633444355 instance=ExtResource("1_bmbpl")]
+position = Vector2(256, 0)
+
+[node name="Tile" parent="Tiles/Row3" unique_id=1490144202 instance=ExtResource("1_bmbpl")]
+position = Vector2(384, 0)
+
+[node name="Tile4" parent="Tiles/Row3" unique_id=773959814 instance=ExtResource("1_bmbpl")]
+position = Vector2(128, 0)
+
+[node name="Row4" type="Node2D" parent="Tiles" unique_id=1906189817]
+position = Vector2(64, 448)
+
+[node name="Tile3" parent="Tiles/Row4" unique_id=184163662 instance=ExtResource("1_bmbpl")]
+
+[node name="Tile2" parent="Tiles/Row4" unique_id=1685930572 instance=ExtResource("1_bmbpl")]
+position = Vector2(256, 0)
+
+[node name="Tile" parent="Tiles/Row4" unique_id=1857993232 instance=ExtResource("1_bmbpl")]
+position = Vector2(384, 0)
+
+[node name="Tile4" parent="Tiles/Row4" unique_id=1960990935 instance=ExtResource("1_bmbpl")]
+position = Vector2(128, 0)

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cnet2q1qnym66"]
+
+[ext_resource type="Texture2D" uid="uid://bpm4vwdvsovbf" path="res://assets/Block-2-1.png" id="1_3kowg"]
+[ext_resource type="Script" uid="uid://bao3orgbp3yon" path="res://scenes/BlockController.gd" id="1_i0fch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0j7jy"]
+size = Vector2(124, 250)
+
+[node name="Block2By1" type="Area2D" unique_id=1373487729]
+script = ExtResource("1_i0fch")
+movement_direction = "Y"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=743130014]
+position = Vector2(64, 128)
+rotation = 1.5707964
+texture = ExtResource("1_3kowg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=650577550]
+position = Vector2(64, 128)
+shape = SubResource("RectangleShape2D_0j7jy")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

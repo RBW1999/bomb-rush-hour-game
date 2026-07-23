@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://deevll2buabok"]
+
+[ext_resource type="PackedScene" uid="uid://bbohusjhe4xje" path="res://scenes/bomb-board.tscn" id="1_2q6dc"]
+[ext_resource type="PackedScene" uid="uid://cnet2q1qnym66" path="res://scenes/Block-1by2.tscn" id="2_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://csmcfjofef0c7" path="res://scenes/Block-2by1.tscn" id="3_w8frs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
+size = Vector2(529.5, 38)
+
+[node name="level" type="Node2D" unique_id=482031804]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=798576406]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 1170.0
+offset_bottom = 671.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.10747976, 0.10747973, 0.10747973, 1)
+
+[node name="BombBoard" parent="." unique_id=3910941 instance=ExtResource("1_2q6dc")]
+position = Vector2(143, 51)
+
+[node name="Block1By2-" parent="BombBoard" unique_id=1373487729 instance=ExtResource("2_w7c3h")]
+
+[node name="Block1By2-2" parent="BombBoard" unique_id=1301902877 instance=ExtResource("2_w7c3h")]
+position = Vector2(256, 256)
+
+[node name="Block2By1" parent="BombBoard" unique_id=289182631 instance=ExtResource("3_w8frs")]
+position = Vector2(256, 0)
+
+[node name="Boarder" type="Area2D" parent="BombBoard" unique_id=1164518008]
+position = Vector2(2, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BombBoard/Boarder" unique_id=185643373]
+position = Vector2(255.5, -20)
+shape = SubResource("RectangleShape2D_w8frs")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BombBoard/Boarder" unique_id=1770418829]
+position = Vector2(256, 543)
+shape = SubResource("RectangleShape2D_w8frs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BombBoard/Boarder" unique_id=1576200150]
+position = Vector2(-25, 261.25)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_w8frs")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BombBoard/Boarder" unique_id=363435933]
+position = Vector2(539, 255)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_w8frs")
