@@ -1,11 +1,40 @@
-[gd_scene format=3 uid="uid://deevll2buabok"]
+[gd_scene format=4 uid="uid://deevll2buabok"]
 
-[ext_resource type="PackedScene" uid="uid://bbohusjhe4xje" path="res://scenes/bomb-board.tscn" id="1_2q6dc"]
 [ext_resource type="PackedScene" uid="uid://cnet2q1qnym66" path="res://scenes/Block-1by2.tscn" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://csmcfjofef0c7" path="res://scenes/Block-2by1.tscn" id="3_w8frs"]
+[ext_resource type="Texture2D" uid="uid://b28wn7lq3wg2m" path="res://assets/Texture Atlas.png" id="4_mx8sn"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
-size = Vector2(529.5, 38)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppgk2"]
+texture = ExtResource("4_mx8sn")
+texture_region_size = Vector2i(128, 128)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-53, -55, 51, -54, 52, 55, -54, 55)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-53, -55, 51, -54, 52, 55, -54, 55)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-53, -55, 51, -54, 52, 55, -54, 55)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-53, -55, 51, -54, 52, 55, -54, 55)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-53, -55, 51, -54, 52, 55, -54, 55)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-53, -55, 51, -54, 52, 55, -54, 55)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-53, -55, 51, -54, 52, 55, -54, 55)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-53, -55, 51, -54, 52, 55, -54, 55)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-53, -55, 51, -54, 52, 55, -54, 55)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-53, -55, 51, -54, 52, 55, -54, 55)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-53, -55, 51, -54, 52, 55, -54, 55)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0j7jy"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_ppgk2")
 
 [node name="level" type="Node2D" unique_id=482031804]
 
@@ -15,43 +44,34 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 1170.0
-offset_bottom = 671.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 2208.0
+offset_bottom = 1344.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.10747976, 0.10747973, 0.10747973, 1)
 
-[node name="BombBoard" parent="." unique_id=3910941 instance=ExtResource("1_2q6dc")]
-position = Vector2(143, 51)
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1635196397]
+position = Vector2(576, 160)
+scale = Vector2(0.8, 0.8)
+tile_map_data = PackedByteArray("AAAAAAAAAQADAAIAAAAAAAEAAQABAAEAAAAAAAIAAQABAAEAAAAAAAMAAQABAAEAAAAAAAQAAQABAAEAAAABAAAAAQAAAAEAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAACAAAAAQAAAAEAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAAAAQAAAAEAAAADAAEAAQAAAAAAAAADAAIAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAAAAQAAAAEAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAAAAQAAAAIAAAAFAAEAAQABAAEAAAAFAAIAAQACAAAAAAAFAAMAAQAAAAAAAAAFAAQAAQACAAEAAAAAAAYAAQACAAIAAAABAAYAAQAAAAEAAAACAAYAAQAAAAEAAAADAAYAAQAAAAEAAAAEAAYAAQAAAAEAAAAFAAYAAQABAAIAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQABAAEAAAAAAAUAAQABAAEAAAA=")
+tile_set = SubResource("TileSet_0j7jy")
+rendering_quadrant_size = 128
+physics_quadrant_size = 128
 
-[node name="Block1By2-" parent="BombBoard" unique_id=1373487729 instance=ExtResource("2_w7c3h")]
+[node name="Block1By2-" parent="TileMapLayer" unique_id=1373487729 instance=ExtResource("2_w7c3h")]
+position = Vector2(128, 128)
 
-[node name="Block1By2-2" parent="BombBoard" unique_id=1301902877 instance=ExtResource("2_w7c3h")]
-position = Vector2(256, 256)
+[node name="Block1By2-2" parent="TileMapLayer" unique_id=1301902877 instance=ExtResource("2_w7c3h")]
+position = Vector2(384, 384)
 
-[node name="Block2By1" parent="BombBoard" unique_id=289182631 instance=ExtResource("3_w8frs")]
-position = Vector2(256, 0)
+[node name="Block2By1" parent="TileMapLayer" unique_id=289182631 instance=ExtResource("3_w8frs")]
+position = Vector2(384, 128)
 
-[node name="Boarder" type="Area2D" parent="BombBoard" unique_id=1164518008]
-position = Vector2(2, -4)
+[node name="Block2By2" parent="TileMapLayer" unique_id=1787281041 instance=ExtResource("3_w8frs")]
+position = Vector2(256, 640)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BombBoard/Boarder" unique_id=185643373]
-position = Vector2(255.5, -20)
-shape = SubResource("RectangleShape2D_w8frs")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="BombBoard/Boarder" unique_id=1770418829]
-position = Vector2(256, 543)
-shape = SubResource("RectangleShape2D_w8frs")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="BombBoard/Boarder" unique_id=1576200150]
-position = Vector2(-25, 261.25)
-rotation = 1.5707964
-shape = SubResource("RectangleShape2D_w8frs")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="BombBoard/Boarder" unique_id=363435933]
-position = Vector2(539, 255)
-rotation = 1.5707964
-shape = SubResource("RectangleShape2D_w8frs")
+[node name="Block2By3" parent="TileMapLayer" unique_id=266277226 instance=ExtResource("3_w8frs")]
+position = Vector2(128, 384)
