@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bpm4vwdvsovbf" path="res://assets/Block-2-1.png" id="2_bfp0e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0j7jy"]
-size = Vector2(256, 128)
+size = Vector2(246, 120)
 
-[node name="Block2By1" type="Area2D" unique_id=1373487729]
+[node name="Block2By1" type="CharacterBody2D" unique_id=555982744]
+input_pickable = true
 script = ExtResource("1_16v74")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=743130014]

@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 @export_enum("X","Y") var movement_direction : String = "X"
 @export var GRID_SIZE : int = 128
@@ -21,7 +21,7 @@ func release_block() -> void:
 	last_mouse_pos = Vector2(-1,-1)
 	snap_to_position()
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if (not dragging):
 		return
 	
@@ -38,8 +38,6 @@ func _process(_delta: float) -> void:
 	var offset : Vector2 = new_mouse_pos - last_mouse_pos
 	var axis_offset : Vector2
 	
-	if (has_overlapping_areas()):
-		return
 	
 	if (movement_direction == "X"):
 		axis_offset = Vector2(offset.x, 0)
@@ -48,7 +46,8 @@ func _process(_delta: float) -> void:
 	elif (movement_direction == "Y"):
 		axis_offset = Vector2(0, offset.y)
 	
-	position += axis_offset
+	move_and_collide(axis_offset) 
+	
 	last_mouse_pos = new_mouse_pos
 
 func snap_to_position() -> void:

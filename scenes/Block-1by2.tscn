@@ -4,9 +4,10 @@
 [ext_resource type="Script" uid="uid://bao3orgbp3yon" path="res://scenes/BlockController.gd" id="1_i0fch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0j7jy"]
-size = Vector2(124, 250)
+size = Vector2(122, 243)
 
-[node name="Block2By1" type="Area2D" unique_id=1373487729]
+[node name="Block2By1" type="CharacterBody2D" unique_id=1598746856]
+input_pickable = true
 script = ExtResource("1_i0fch")
 movement_direction = "Y"
 
@@ -16,7 +17,7 @@ rotation = 1.5707964
 texture = ExtResource("1_3kowg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=650577550]
-position = Vector2(64, 128)
+position = Vector2(64, 127.5)
 shape = SubResource("RectangleShape2D_0j7jy")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
