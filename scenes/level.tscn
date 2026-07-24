@@ -1,8 +1,10 @@
 [gd_scene format=4 uid="uid://deevll2buabok"]
 
+[ext_resource type="Script" uid="uid://fubd41rv8qgr" path="res://scenes/level-controller.gd" id="1_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://cnet2q1qnym66" path="res://scenes/Block-1by2.tscn" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://csmcfjofef0c7" path="res://scenes/Block-2by1.tscn" id="3_w8frs"]
 [ext_resource type="Texture2D" uid="uid://b28wn7lq3wg2m" path="res://assets/Texture Atlas.png" id="4_mx8sn"]
+[ext_resource type="Script" uid="uid://k6v7rlgrpty8" path="res://scenes/level_end_UI_controller.gd" id="5_ppgk2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppgk2"]
 texture = ExtResource("4_mx8sn")
@@ -36,7 +38,20 @@ tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_ppgk2")
 
-[node name="level" type="Node2D" unique_id=482031804]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mx8sn"]
+content_margin_left = 40.0
+content_margin_top = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="level" type="Node2D" unique_id=482031804 groups=["LevelController"]]
+script = ExtResource("1_mx8sn")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=798576406]
 anchors_preset = 8
@@ -75,3 +90,76 @@ position = Vector2(256, 640)
 
 [node name="Block2By3" parent="TileMapLayer" unique_id=266277226 instance=ExtResource("3_w8frs")]
 position = Vector2(128, 384)
+
+[node name="UI" type="Control" parent="." unique_id=1270202574]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="LevelEnd" type="PanelContainer" parent="UI" unique_id=1684192149]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mx8sn")
+script = ExtResource("5_ppgk2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/LevelEnd" unique_id=1718606771]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="UI/LevelEnd/VBoxContainer" unique_id=317902189]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Level End"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="UI/LevelEnd/VBoxContainer" unique_id=2018636070]
+layout_mode = 2
+
+[node name="MovesLeft" type="Label" parent="UI/LevelEnd/VBoxContainer" unique_id=1029778686]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Moves Left: 0"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="UI/LevelEnd/VBoxContainer" unique_id=1788835364]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/LevelEnd/VBoxContainer" unique_id=1867754062]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="B_Restart" type="Button" parent="UI/LevelEnd/VBoxContainer/HBoxContainer" unique_id=2094036556]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+
+[node name="B_Next" type="Button" parent="UI/LevelEnd/VBoxContainer/HBoxContainer" unique_id=456190457]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Next Level"
+
+[connection signal="pressed" from="UI/LevelEnd/VBoxContainer/HBoxContainer/B_Restart" to="UI/LevelEnd" method="_on_b_restart_pressed"]
+[connection signal="pressed" from="UI/LevelEnd/VBoxContainer/HBoxContainer/B_Next" to="UI/LevelEnd" method="_on_b_next_pressed"]
