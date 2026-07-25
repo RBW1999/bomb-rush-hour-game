@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bq5v2yjx4erry"]
+
+[ext_resource type="Script" uid="uid://bao3orgbp3yon" path="res://scenes/BlockController.gd" id="1_vtixm"]
+[ext_resource type="Texture2D" uid="uid://gvthwdp5rgbv" path="res://assets/Bombblock.png" id="2_lvvji"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0j7jy"]
+size = Vector2(246, 120)
+
+[node name="BlockBomb" type="CharacterBody2D" unique_id=555982744]
+input_pickable = true
+script = ExtResource("1_vtixm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=743130014]
+position = Vector2(128, 64)
+texture = ExtResource("2_lvvji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=650577550]
+position = Vector2(128, 64)
+shape = SubResource("RectangleShape2D_0j7jy")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

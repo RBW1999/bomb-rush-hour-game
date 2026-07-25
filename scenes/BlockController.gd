@@ -2,8 +2,7 @@ class_name Block
 extends CharacterBody2D
 
 @export_enum("X","Y") var movement_direction : String = "X"
-@export var GRID_SIZE : int = 128
-
+const GRID_SIZE : int = 128
 
 var dragging := false
 var last_mouse_pos : Vector2
