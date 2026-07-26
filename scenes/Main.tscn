@@ -19,8 +19,8 @@ script = ExtResource("1_elqb8")
 levels = Array[PackedScene]([ExtResource("2_0bbpv"), ExtResource("3_rarhs"), ExtResource("4_vcsgt")])
 
 [node name="MenuBG" type="Sprite2D" parent="." unique_id=1672897531]
-position = Vector2(986.13544, 567.56885)
-scale = Vector2(1.1749152, 1.1749153)
+position = Vector2(986.13544, 603)
+scale = Vector2(1.2483052, 1.2483053)
 texture = ExtResource("6_bjd11")
 
 [node name="MainMenu" type="Control" parent="." unique_id=1972490692]
