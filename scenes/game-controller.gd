@@ -5,6 +5,7 @@ const LEVEL_SELECT_BUTTON = preload("uid://bg0mogicmyxf3")
 
 @onready var music_controller: AudioController = %MusicController
 @export var levels : Array[PackedScene]
+@onready var level_bg: Sprite2D = %LevelBg
 
 var level_idx := 0
 var loaded_level : LevelController
@@ -19,6 +20,7 @@ func on_next_level() -> void :
 	# load main menu if no more levels exist
 	if (level_idx >= levels.size()):
 		main_menu.visible = true
+		level_bg.visible = false
 		loaded_level.queue_free()
 		music_controller.play_menu_music()
 		return
@@ -27,6 +29,8 @@ func on_next_level() -> void :
 
 func load_level(idx : int) -> void :
 	
+	main_menu.visible = false
+	level_bg.visible = true
 	unload_current_level()
 	
 	# load new level
@@ -39,6 +43,7 @@ func load_level(idx : int) -> void :
 
 func on_return_to_main_menu() -> void:
 	main_menu.visible = true
+	level_bg.visible = false
 	music_controller.play_menu_music()
 	unload_current_level()
 
@@ -51,6 +56,7 @@ func unload_current_level() -> void:
 
 func _on_b_start_pressed() -> void:
 	main_menu.visible = false
+	level_bg.visible = true
 	level_idx = 0
 	
 	load_level(level_idx)
