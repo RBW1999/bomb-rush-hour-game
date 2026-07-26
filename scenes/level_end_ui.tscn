@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://emlcfdar1522"]
 
 [ext_resource type="Script" uid="uid://k6v7rlgrpty8" path="res://scenes/level_end_UI_controller.gd" id="1_agyl0"]
+[ext_resource type="AudioStream" uid="uid://bqsuhjdqjmuhp" path="res://assets/sounds/freesound_community-explosion-47821.mp3" id="2_vig7g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mx8sn"]
 content_margin_left = 40.0
@@ -75,10 +76,21 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Restart"
 
+[node name="B_Menu" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1603885650]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Menu
+"
+
 [node name="B_Next" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=166831338]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Next Level"
 
+[node name="ASP_SFX_BombExplosion" type="AudioStreamPlayer" parent="." unique_id=456740576]
+unique_name_in_owner = true
+stream = ExtResource("2_vig7g")
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/B_Restart" to="." method="_on_b_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/B_Menu" to="." method="_on_b_menu_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/B_Next" to="." method="_on_b_next_pressed"]

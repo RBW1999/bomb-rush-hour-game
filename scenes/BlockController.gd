@@ -2,6 +2,9 @@ class_name Block
 extends CharacterBody2D
 
 @export_enum("X","Y") var movement_direction : String = "X"
+@onready var asp_sfx_bomb_beep: AudioStreamPlayer = %ASP_SFX_BombBeep
+
+
 const GRID_SIZE : int = 128
 
 var dragging := false
@@ -22,6 +25,8 @@ func _ready() -> void:
 	level_controller = levelController as LevelController
 	
 	level_controller.register_block(self)
+	
+	assert(asp_sfx_bomb_beep != null, "No AudioStreamPlayer available")
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouse):
@@ -38,7 +43,9 @@ func release_block() -> void:
 	snap_to_position()
 	
 	if (drag_start_pos != position):
+		asp_sfx_bomb_beep.play()
 		block_moved.emit()
+
 
 func _physics_process(_delta: float) -> void:
 	if (not dragging):

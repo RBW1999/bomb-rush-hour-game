@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bao3orgbp3yon" path="res://scenes/BlockController.gd" id="1_p8top"]
 [ext_resource type="Texture2D" uid="uid://c4l5i77bkk57c" path="res://assets/Block-3-1.png" id="2_p8top"]
+[ext_resource type="AudioStream" uid="uid://cjsmu17gavsse" path="res://assets/sounds/bomb-beep-cutted.mp3" id="3_x0img"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0j7jy"]
 size = Vector2(246, 120)
@@ -17,5 +18,9 @@ shape = SubResource("RectangleShape2D_0j7jy")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=743130014]
 position = Vector2(192, 64)
 texture = ExtResource("2_p8top")
+
+[node name="ASP_SFX_BombBeep" type="AudioStreamPlayer" parent="." unique_id=941784]
+unique_name_in_owner = true
+stream = ExtResource("3_x0img")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

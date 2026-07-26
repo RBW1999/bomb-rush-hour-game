@@ -7,7 +7,9 @@ extends Node2D
 @export var level_moves : int 
 @export var win_conditions : Array[WinCondition]
 
+
 signal next_level
+signal main_menu
 
 var remaining_moves : int :
 	get():
@@ -21,9 +23,13 @@ var blocks : Array[Block]
 func _ready() -> void:
 	level_end.restart_level.connect(on_restart_level)
 	level_end.next_level.connect(on_next_level)
+	level_end.main_menu.connect(on_main_menu)
 	move_countdown.set_move_counter(level_moves)
 	
 	remaining_moves = level_moves
+
+func on_main_menu() -> void:
+	main_menu.emit()
 
 func on_next_level() -> void:
 	next_level.emit()

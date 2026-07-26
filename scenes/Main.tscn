@@ -5,6 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bg0mogicmyxf3" path="res://scenes/level_select_button.tscn" id="3_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://cyyxwr7cmajgv" path="res://scenes/levels/level-2.tscn" id="3_rarhs"]
 [ext_resource type="PackedScene" uid="uid://crf3s5jb75f7t" path="res://scenes/levels/level-3.tscn" id="4_vcsgt"]
+[ext_resource type="Script" uid="uid://cxkcbplxpws0c" path="res://scenes/audio_controller.gd" id="6_c01mt"]
+[ext_resource type="AudioStream" uid="uid://idw22jq181te" path="res://assets/music/suspense_menu-leberch-511168.mp3" id="7_lhr70"]
+[ext_resource type="AudioStream" uid="uid://ddwya6kg7omkr" path="res://assets/music/suspense_level-leberch-516354.mp3" id="8_wp0k4"]
+[ext_resource type="AudioStream" uid="uid://cjsmu17gavsse" path="res://assets/sounds/bomb-beep-cutted.mp3" id="9_bjd11"]
+[ext_resource type="AudioStream" uid="uid://bqsuhjdqjmuhp" path="res://assets/sounds/freesound_community-explosion-47821.mp3" id="10_qmy6f"]
 
 [node name="Main" type="Node2D" unique_id=255308076]
 script = ExtResource("1_elqb8")
@@ -58,5 +63,17 @@ columns = 3
 [node name="Button2" parent="MainMenu/VBoxContainer/GridContainer" unique_id=74673580 instance=ExtResource("3_0bbpv")]
 visible = false
 layout_mode = 2
+
+[node name="MusicController" type="Node" parent="." unique_id=2130595289]
+unique_name_in_owner = true
+script = ExtResource("6_c01mt")
+main_menu = ExtResource("7_lhr70")
+level_music = ExtResource("8_wp0k4")
+bomb_beep = ExtResource("9_bjd11")
+bomb_explosion = ExtResource("10_qmy6f")
+
+[node name="ASP_Music" type="AudioStreamPlayer" parent="MusicController" unique_id=2091594653]
+unique_name_in_owner = true
+bus = &"Music"
 
 [connection signal="pressed" from="MainMenu/VBoxContainer/B_Start" to="." method="_on_b_start_pressed"]
