@@ -22,5 +22,6 @@ texture = ExtResource("2_bfp0e")
 [node name="ASP_SFX_BombBeep" type="AudioStreamPlayer" parent="." unique_id=1919974271]
 unique_name_in_owner = true
 stream = ExtResource("3_cge1u")
+bus = &"SFX"
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
