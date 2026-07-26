@@ -15,6 +15,10 @@ run/main_scene="uid://c7umn3t2y3guh"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://bflvqyhhquff6"
+
 [display]
 
 window/size/viewport_width=1920

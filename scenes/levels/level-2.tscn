@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://fubd41rv8qgr" path="res://scenes/level-controller.gd" id="1_r2c4r"]
 [ext_resource type="Texture2D" uid="uid://b28wn7lq3wg2m" path="res://assets/Texture Atlas.png" id="3_3madb"]
-[ext_resource type="PackedScene" uid="uid://3qdq86ua8373" path="res://scenes/Block-3by1.tscn" id="5_rh0i7"]
 [ext_resource type="PackedScene" uid="uid://csmcfjofef0c7" path="res://scenes/Block-2by1.tscn" id="5_vlvhc"]
 [ext_resource type="PackedScene" uid="uid://bq5v2yjx4erry" path="res://scenes/Block-Bomb.tscn" id="6_fhmvk"]
 [ext_resource type="Script" uid="uid://e7jmw3it4yw4" path="res://scenes/win_condition.gd" id="7_bcs18"]
+[ext_resource type="PackedScene" uid="uid://cuf4ouqokhqxt" path="res://scenes/Block-2by1-timer.tscn" id="7_paeld"]
 [ext_resource type="PackedScene" uid="uid://emlcfdar1522" path="res://scenes/level_end_ui.tscn" id="8_qv14b"]
 [ext_resource type="PackedScene" uid="uid://4gkeb4ba1e2v" path="res://scenes/move_countdown_ui.tscn" id="9_dxlk0"]
 
@@ -52,7 +52,7 @@ size = Vector2(256, 128)
 
 [node name="level" type="Node2D" unique_id=482031804 node_paths=PackedStringArray("win_conditions") groups=["LevelController"]]
 script = ExtResource("1_r2c4r")
-level_moves = 5
+level_moves = 10
 win_conditions = [NodePath("TileMapLayer/WC-1"), NodePath("TileMapLayer/WC-2")]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=798576406]
@@ -73,27 +73,24 @@ color = Color(0.10747976, 0.10747973, 0.10747973, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1635196397]
 position = Vector2(128, 128)
-tile_map_data = PackedByteArray("AAAAAAAAAQAAAAIAAAAAAAEAAQABAAEAAAAAAAIAAQABAAEAAAAAAAMAAQABAAEAAAAAAAQAAQABAAEAAAABAAAAAQACAAEAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAACAAAAAQACAAEAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAAAAQACAAEAAAADAAEAAQAAAAAAAAADAAIAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAAAAQABAAMAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAAAAQACAAAAAAAFAAEAAQACAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAFAAQAAQAAAAAAAAAAAAYAAQACAAIAAAABAAYAAQAAAAEAAAACAAYAAQAAAAEAAAADAAYAAQAAAAEAAAAEAAYAAQAAAAEAAAAFAAYAAQAAAAEAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAAAAUAAQABAAEAAAAGAAMAAQAAAAAAAAAHAAMAAQACAAMAAAAGAAQAAQACAAAAAAAHAAQAAQACAAAAAAAHAAIAAQADAAEAAAAGAAIAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAUAAQAAAAAAAAAGAAYAAQAAAAEAAAAHAAEAAQADAAEAAAAHAAUAAQAAAAMAAAAGAAAAAQACAAMAAAAHAAAAAQADAAIAAAAHAAYAAQABAAIAAAAIAAUAAQABAAIAAAAIAAQAAQADAAEAAAAIAAMAAQADAAIAAAAFAP//AQACAAEAAAAGAP//AQADAAIAAAAEAP//AQAAAAIAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAIAAAAAAAEAAQABAAEAAAAAAAIAAQABAAEAAAAAAAMAAQABAAEAAAAAAAQAAQABAAEAAAABAAAAAQACAAEAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAACAAAAAQACAAEAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAAAAQACAAEAAAADAAEAAQAAAAAAAAADAAIAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAAAAYAAQACAAIAAAABAAYAAQAAAAEAAAACAAYAAQAAAAEAAAADAAYAAQAAAAEAAAAEAAYAAQABAAAAAAAFAAYAAQAAAAAAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAAAAUAAQABAAEAAAAHAAMAAQACAAMAAAAGAAQAAQACAAAAAAAHAAQAAQACAAAAAAAHAAIAAQADAAEAAAAGAAUAAQAAAAAAAAAGAAYAAQABAAAAAAAHAAEAAQADAAEAAAAHAAUAAQAAAAMAAAAHAAAAAQADAAIAAAAHAAYAAQABAAIAAAAIAAUAAQABAAIAAAAIAAQAAQADAAEAAAAIAAMAAQADAAIAAAAEAP//AQAAAAIAAAAEAAAAAQABAAMAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAFAP//AQACAAEAAAAFAAAAAQACAAAAAAAFAAEAAQACAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAGAP//AQADAAIAAAAGAAAAAQACAAMAAAAGAAEAAQAAAAAAAAAGAAIAAQAAAAAAAAAGAAMAAQAAAAAAAAAFAAcAAQABAAAAAAA=")
 tile_set = SubResource("TileSet_0j7jy")
 rendering_quadrant_size = 128
 physics_quadrant_size = 128
 
-[node name="Block1By3" parent="TileMapLayer" unique_id=555982744 instance=ExtResource("5_rh0i7")]
-position = Vector2(384, 256)
-
 [node name="Block2By2" parent="TileMapLayer" unique_id=1787281041 instance=ExtResource("5_vlvhc")]
-position = Vector2(512, 640)
+position = Vector2(256, 640)
 
 [node name="Block2By3" parent="TileMapLayer" unique_id=1954103871 instance=ExtResource("5_vlvhc")]
-position = Vector2(384, 128)
+position = Vector2(256, 128)
 rotation = 1.5707964
 movement_direction = "Y"
 
 [node name="BB-1" parent="TileMapLayer" unique_id=1897279880 instance=ExtResource("6_fhmvk")]
-position = Vector2(256, 512)
+position = Vector2(128, 512)
 
 [node name="BB-2" parent="TileMapLayer" unique_id=1306295452 instance=ExtResource("6_fhmvk")]
-position = Vector2(768, 384)
+position = Vector2(768, 640)
 rotation = 1.5707964
 movement_direction = "Y"
 
@@ -115,6 +112,30 @@ target = NodePath("../BB-2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/WC-2" unique_id=2123326722]
 position = Vector2(128, 64)
 shape = SubResource("RectangleShape2D_qafkn")
+
+[node name="BlockTimer" parent="TileMapLayer" unique_id=137923118 instance=ExtResource("7_paeld")]
+position = Vector2(512, 384)
+rotation = 1.5707964
+movement_direction = "Y"
+
+[node name="L_Timer" parent="TileMapLayer/BlockTimer/Sprite2D" parent_id_path=PackedInt32Array(137923118, 743130014) index="0" unique_id=1238126269 node_paths=PackedStringArray("target_Block", "level_controller")]
+offset_left = -47.999996
+offset_top = 20.000004
+offset_right = -7.999996
+offset_bottom = 108.0
+rotation = -1.5707964
+target_Block = NodePath("../..")
+level_controller = NodePath("../../../..")
+move_timer = 3
+
+[node name="BlockTimer2" parent="TileMapLayer" unique_id=724530102 instance=ExtResource("7_paeld")]
+position = Vector2(512, 256)
+
+[node name="L_Timer" parent="TileMapLayer/BlockTimer2/Sprite2D" parent_id_path=PackedInt32Array(724530102, 743130014) index="0" unique_id=1238126269 node_paths=PackedStringArray("target_Block", "level_controller")]
+text = "1"
+target_Block = NodePath("../..")
+level_controller = NodePath("../../../..")
+move_timer = 1
 
 [node name="UI" type="Control" parent="." unique_id=1270202574]
 layout_mode = 3
@@ -151,3 +172,6 @@ offset_bottom = -74.0
 [connection signal="body_entered" from="TileMapLayer/WC-1" to="TileMapLayer/WC-1" method="_on_body_entered"]
 [connection signal="area_entered" from="TileMapLayer/WC-2" to="TileMapLayer/WC-2" method="_on_area_entered"]
 [connection signal="body_entered" from="TileMapLayer/WC-2" to="TileMapLayer/WC-2" method="_on_body_entered"]
+
+[editable path="TileMapLayer/BlockTimer"]
+[editable path="TileMapLayer/BlockTimer2"]

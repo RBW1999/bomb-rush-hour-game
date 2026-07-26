@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cuf4ouqokhqxt"]
+
+[ext_resource type="Script" uid="uid://bao3orgbp3yon" path="res://scenes/BlockController.gd" id="1_4031e"]
+[ext_resource type="Texture2D" uid="uid://ng31ifuxjoo2" path="res://assets/Block-2-1-timer.png" id="2_eynow"]
+[ext_resource type="Script" uid="uid://bbxv0kuna2qdj" path="res://scenes/l_timer.gd" id="3_52xow"]
+[ext_resource type="AudioStream" uid="uid://cjsmu17gavsse" path="res://assets/sounds/bomb-beep-cutted.mp3" id="3_vhg6i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0j7jy"]
+size = Vector2(246, 120)
+
+[node name="Block2By1" type="CharacterBody2D" unique_id=555982744]
+input_pickable = true
+script = ExtResource("1_4031e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=650577550]
+position = Vector2(128, 64)
+shape = SubResource("RectangleShape2D_0j7jy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=743130014]
+position = Vector2(128, 64)
+texture = ExtResource("2_eynow")
+
+[node name="L_Timer" type="Label" parent="Sprite2D" unique_id=1238126269]
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 64
+text = "3"
+horizontal_alignment = 1
+script = ExtResource("3_52xow")
+
+[node name="ASP_SFX_BombBeep" type="AudioStreamPlayer" parent="." unique_id=1919974271]
+unique_name_in_owner = true
+stream = ExtResource("3_vhg6i")
+bus = &"SFX"
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

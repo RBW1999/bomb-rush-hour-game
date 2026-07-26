@@ -1,18 +1,16 @@
-[gd_scene format=4 uid="uid://ofduq5p50wry"]
+[gd_scene format=4 uid="uid://ctnal87ibi80r"]
 
-[ext_resource type="Script" uid="uid://fubd41rv8qgr" path="res://scenes/level-controller.gd" id="1_7ngkv"]
-[ext_resource type="Texture2D" uid="uid://b5xkjrgandhu8" path="res://assets/Background.png" id="2_8mmlf"]
-[ext_resource type="Texture2D" uid="uid://b28wn7lq3wg2m" path="res://assets/Texture Atlas.png" id="3_7vhjv"]
-[ext_resource type="PackedScene" uid="uid://ckxkattvavt7g" path="res://scenes/Block-2by1-linked.tscn" id="4_l56ll"]
-[ext_resource type="PackedScene" uid="uid://3qdq86ua8373" path="res://scenes/Block-3by1.tscn" id="5_8mmlf"]
-[ext_resource type="PackedScene" uid="uid://csmcfjofef0c7" path="res://scenes/Block-2by1.tscn" id="5_y6uma"]
-[ext_resource type="PackedScene" uid="uid://bq5v2yjx4erry" path="res://scenes/Block-Bomb.tscn" id="6_3vqj2"]
-[ext_resource type="Script" uid="uid://e7jmw3it4yw4" path="res://scenes/win_condition.gd" id="7_y5bkq"]
-[ext_resource type="PackedScene" uid="uid://emlcfdar1522" path="res://scenes/level_end_ui.tscn" id="8_ug4f8"]
-[ext_resource type="PackedScene" uid="uid://4gkeb4ba1e2v" path="res://scenes/move_countdown_ui.tscn" id="9_373xj"]
+[ext_resource type="Script" uid="uid://fubd41rv8qgr" path="res://scenes/level-controller.gd" id="1_f0rgr"]
+[ext_resource type="Texture2D" uid="uid://b28wn7lq3wg2m" path="res://assets/Texture Atlas.png" id="2_qofc5"]
+[ext_resource type="PackedScene" uid="uid://3qdq86ua8373" path="res://scenes/Block-3by1.tscn" id="3_ff6b5"]
+[ext_resource type="PackedScene" uid="uid://csmcfjofef0c7" path="res://scenes/Block-2by1.tscn" id="4_dob7l"]
+[ext_resource type="PackedScene" uid="uid://bq5v2yjx4erry" path="res://scenes/Block-Bomb.tscn" id="5_t6jol"]
+[ext_resource type="Script" uid="uid://e7jmw3it4yw4" path="res://scenes/win_condition.gd" id="6_oyvrf"]
+[ext_resource type="PackedScene" uid="uid://emlcfdar1522" path="res://scenes/level_end_ui.tscn" id="7_i66bm"]
+[ext_resource type="PackedScene" uid="uid://4gkeb4ba1e2v" path="res://scenes/move_countdown_ui.tscn" id="8_bjsby"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppgk2"]
-texture = ExtResource("3_7vhjv")
+texture = ExtResource("2_qofc5")
 texture_region_size = Vector2i(128, 128)
 0:2/0 = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-53, -55, 51, -54, 52, 55, -54, 55)
@@ -53,14 +51,9 @@ sources/1 = SubResource("TileSetAtlasSource_ppgk2")
 size = Vector2(256, 128)
 
 [node name="level" type="Node2D" unique_id=482031804 node_paths=PackedStringArray("win_conditions") groups=["LevelController"]]
-script = ExtResource("1_7ngkv")
-level_moves = 12
-win_conditions = [NodePath("TileMapLayer/WC-1"), NodePath("TileMapLayer/WC-2"), NodePath("TileMapLayer/WC-3")]
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1687474873]
-position = Vector2(960, 550)
-scale = Vector2(1.0858904, 1.0858904)
-texture = ExtResource("2_8mmlf")
+script = ExtResource("1_f0rgr")
+level_moves = 5
+win_conditions = [NodePath("TileMapLayer/WC-1"), NodePath("TileMapLayer/WC-2")]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=798576406]
 visible = false
@@ -79,71 +72,47 @@ mouse_filter = 2
 color = Color(0.10747976, 0.10747973, 0.10747973, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1635196397]
-position = Vector2(256, 256)
-scale = Vector2(0.65, 0.65)
-tile_map_data = PackedByteArray("AAAAAAMAAQABAAAAAAAAAAQAAQABAAAAAAABAAAAAQABAAAAAAABAAEAAQABAAAAAAABAAIAAQABAAAAAAABAAMAAQACAAAAAAABAAQAAQAAAAAAAAACAAAAAQABAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQACAAAAAAACAAQAAQAAAAAAAAADAAEAAQAAAAAAAAADAAIAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAEAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAFAAQAAQAAAAAAAAACAAYAAQABAAAAAAADAAYAAQAAAAAAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAAAAUAAQABAAAAAAAGAAMAAQAAAAAAAAAHAAMAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAGAAIAAQAAAAAAAAAGAAEAAQAAAAAAAAAIAAMAAQAAAAAAAAAEAAAAAQABAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAABAAYAAQABAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAGAAUAAQACAAAAAAAHAAUAAQAAAAAAAAAAAAYAAQABAAAAAAAEAAYAAQABAAAAAAAIAAUAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQABAAAAAAAJAAMAAQAAAAAAAAAHAAEAAQAAAAAAAAAHAAIAAQAAAAAAAAAIAAIAAQAAAAAAAAAJAAIAAQABAAAAAAAHAAAAAQABAAAAAAAIAAEAAQAAAAAAAAAFAAYAAQAAAAAAAAAHAAYAAQABAAAAAAAIAAYAAQABAAAAAAAKAAMAAQABAAAAAAAJAAEAAQABAAAAAAAKAAQAAQABAAAAAAAJAAYAAQABAAAAAAAKAAYAAQABAAAAAAALAAUAAQABAAAAAAAIAAAAAQABAAAAAAADAAAAAQAAAAAAAAADAAcAAQABAAAAAAAFAAcAAQABAAAAAAAHAAcAAQABAAAAAAAGAAcAAQABAAAAAAAGAAYAAQACAAAAAAAJAAUAAQACAAAAAAAKAAUAAQACAAAAAAAFAP//AQABAAAAAAAFAP7/AQABAAAAAAAGAP7/AQABAAAAAAAHAP7/AQABAAAAAAAHAP//AQABAAAAAAAGAP//AQAAAAAAAAADAP//AQABAAAAAAA=")
+position = Vector2(128, 128)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAIAAAAAAAEAAQABAAEAAAAAAAIAAQABAAEAAAAAAAMAAQABAAEAAAAAAAQAAQABAAEAAAABAAAAAQACAAEAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAACAAAAAQACAAEAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAAAAQACAAEAAAADAAEAAQAAAAAAAAADAAIAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAAAAQABAAMAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAAAAQACAAAAAAAFAAEAAQACAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAFAAQAAQAAAAAAAAAAAAYAAQACAAIAAAABAAYAAQAAAAEAAAACAAYAAQAAAAEAAAADAAYAAQAAAAEAAAAEAAYAAQAAAAEAAAAFAAYAAQAAAAEAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAAAAUAAQABAAEAAAAGAAMAAQAAAAAAAAAHAAMAAQACAAMAAAAGAAQAAQACAAAAAAAHAAQAAQACAAAAAAAHAAIAAQADAAEAAAAGAAIAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAUAAQAAAAAAAAAGAAYAAQAAAAEAAAAHAAEAAQADAAEAAAAHAAUAAQAAAAMAAAAGAAAAAQACAAMAAAAHAAAAAQADAAIAAAAHAAYAAQABAAIAAAAIAAUAAQABAAIAAAAIAAQAAQADAAEAAAAIAAMAAQADAAIAAAAFAP//AQACAAEAAAAGAP//AQADAAIAAAAEAP//AQAAAAIAAAA=")
 tile_set = SubResource("TileSet_0j7jy")
 rendering_quadrant_size = 128
 physics_quadrant_size = 128
 
-[node name="BlockLinked-1" parent="TileMapLayer" unique_id=555982744 instance=ExtResource("4_l56ll")]
+[node name="Block1By3" parent="TileMapLayer" unique_id=555982744 instance=ExtResource("3_ff6b5")]
+position = Vector2(384, 256)
+
+[node name="Block2By2" parent="TileMapLayer" unique_id=1787281041 instance=ExtResource("4_dob7l")]
+position = Vector2(512, 640)
+
+[node name="Block2By3" parent="TileMapLayer" unique_id=1954103871 instance=ExtResource("4_dob7l")]
 position = Vector2(384, 128)
-
-[node name="CollisionShape2D" parent="TileMapLayer/BlockLinked-1" index="0" unique_id=650577550]
-position = Vector2(128, 192)
-
-[node name="Sprite2D" parent="TileMapLayer/BlockLinked-1" index="1" unique_id=743130014]
-position = Vector2(128, 192)
-
-[node name="Block3-1" parent="TileMapLayer" unique_id=1311895345 instance=ExtResource("5_8mmlf")]
-position = Vector2(512, 512)
 rotation = 1.5707964
 movement_direction = "Y"
 
-[node name="Block3-2" parent="TileMapLayer" unique_id=1771702588 instance=ExtResource("5_8mmlf")]
-position = Vector2(640, 128)
+[node name="BB-1" parent="TileMapLayer" unique_id=1897279880 instance=ExtResource("5_t6jol")]
+position = Vector2(256, 512)
 
-[node name="Block2-3" parent="TileMapLayer" unique_id=966236042 instance=ExtResource("5_y6uma")]
-position = Vector2(768, 256)
-rotation = 1.5707964
-movement_direction = "Y"
-
-[node name="BB-1" parent="TileMapLayer" unique_id=1306295452 instance=ExtResource("6_3vqj2")]
-position = Vector2(128, 640)
-
-[node name="BB-2" parent="TileMapLayer" unique_id=1717141416 instance=ExtResource("6_3vqj2")]
-position = Vector2(1024, 384)
-
-[node name="BB-3" parent="TileMapLayer" unique_id=847587362 instance=ExtResource("6_3vqj2")]
-position = Vector2(896, -128)
+[node name="BB-2" parent="TileMapLayer" unique_id=1306295452 instance=ExtResource("5_t6jol")]
+position = Vector2(768, 384)
 rotation = 1.5707964
 movement_direction = "Y"
 
 [node name="WC-1" type="Area2D" parent="TileMapLayer" unique_id=821645839 node_paths=PackedStringArray("target")]
-position = Vector2(1152, 640)
-script = ExtResource("7_y5bkq")
+position = Vector2(769, 510)
+script = ExtResource("6_oyvrf")
 target = NodePath("../BB-1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/WC-1" unique_id=2115516007]
 position = Vector2(128, 64)
 shape = SubResource("RectangleShape2D_qafkn")
 
-[node name="WC-2" type="Area2D" parent="TileMapLayer" unique_id=879372775 node_paths=PackedStringArray("target")]
-position = Vector2(128, 384)
-script = ExtResource("7_y5bkq")
+[node name="WC-2" type="Area2D" parent="TileMapLayer" unique_id=1149192776 node_paths=PackedStringArray("target")]
+position = Vector2(769, -1)
+rotation = 1.5707964
+script = ExtResource("6_oyvrf")
 target = NodePath("../BB-2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/WC-2" unique_id=549604219]
-position = Vector2(128, 64)
-shape = SubResource("RectangleShape2D_qafkn")
-
-[node name="WC-3" type="Area2D" parent="TileMapLayer" unique_id=287085115 node_paths=PackedStringArray("target")]
-position = Vector2(896, 640)
-rotation = 1.5707964
-script = ExtResource("7_y5bkq")
-target = NodePath("../BB-3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/WC-3" unique_id=148932350]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/WC-2" unique_id=2123326722]
 position = Vector2(128, 64)
 shape = SubResource("RectangleShape2D_qafkn")
 
@@ -162,7 +131,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="LevelEnd" parent="UI" unique_id=1965265778 instance=ExtResource("8_ug4f8")]
+[node name="LevelEnd" parent="UI" unique_id=1965265778 instance=ExtResource("7_i66bm")]
 unique_name_in_owner = true
 layout_mode = 1
 offset_left = -308.0
@@ -170,7 +139,7 @@ offset_top = -207.0
 offset_right = 278.0
 offset_bottom = 198.0
 
-[node name="MoveCountdown" parent="UI" unique_id=982783656 instance=ExtResource("9_373xj")]
+[node name="MoveCountdown" parent="UI" unique_id=982783656 instance=ExtResource("8_bjsby")]
 unique_name_in_owner = true
 layout_mode = 1
 offset_left = -583.0
@@ -182,8 +151,3 @@ offset_bottom = -74.0
 [connection signal="body_entered" from="TileMapLayer/WC-1" to="TileMapLayer/WC-1" method="_on_body_entered"]
 [connection signal="area_entered" from="TileMapLayer/WC-2" to="TileMapLayer/WC-2" method="_on_area_entered"]
 [connection signal="body_entered" from="TileMapLayer/WC-2" to="TileMapLayer/WC-2" method="_on_body_entered"]
-[connection signal="area_entered" from="TileMapLayer/WC-3" to="TileMapLayer/WC-3" method="_on_area_entered"]
-[connection signal="body_entered" from="TileMapLayer/WC-3" to="TileMapLayer/WC-3" method="_on_body_entered"]
-[connection signal="body_exited" from="TileMapLayer/WC-3" to="TileMapLayer/WC-3" method="_on_body_exited"]
-
-[editable path="TileMapLayer/BlockLinked-1"]

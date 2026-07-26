@@ -10,6 +10,7 @@ extends Node2D
 
 signal next_level
 signal main_menu
+signal block_moved
 
 var remaining_moves : int :
 	get():
@@ -60,6 +61,7 @@ func check_all_win_conditions() -> bool:
 
 func on_block_moved() -> void:
 	remaining_moves -= 1
+	block_moved.emit()
 	
 	if (check_all_win_conditions()):
 		level_end.visible = true
