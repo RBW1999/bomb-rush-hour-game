@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bg0mogicmyxf3" path="res://scenes/level_select_button.tscn" id="3_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://cyyxwr7cmajgv" path="res://scenes/levels/level-2.tscn" id="3_rarhs"]
 [ext_resource type="PackedScene" uid="uid://crf3s5jb75f7t" path="res://scenes/levels/level-3.tscn" id="4_vcsgt"]
+[ext_resource type="PackedScene" uid="uid://ofduq5p50wry" path="res://scenes/levels/level-4.tscn" id="5_mwfav"]
 [ext_resource type="Texture2D" uid="uid://bvsw1mvavvluw" path="res://assets/MainMenu.png" id="6_bjd11"]
 [ext_resource type="Script" uid="uid://cxkcbplxpws0c" path="res://scenes/audio_controller.gd" id="6_c01mt"]
 [ext_resource type="Texture2D" uid="uid://dwj20p1o0p5u4" path="res://assets/Logo.png" id="6_qmy6f"]
@@ -16,7 +17,7 @@
 
 [node name="Main" type="Node2D" unique_id=255308076]
 script = ExtResource("1_elqb8")
-levels = Array[PackedScene]([ExtResource("2_0bbpv"), ExtResource("3_rarhs"), ExtResource("4_vcsgt")])
+levels = Array[PackedScene]([ExtResource("2_0bbpv"), ExtResource("3_rarhs"), ExtResource("4_vcsgt"), ExtResource("5_mwfav")])
 
 [node name="MenuBG" type="Sprite2D" parent="." unique_id=1672897531]
 position = Vector2(986.13544, 603)

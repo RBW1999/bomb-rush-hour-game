@@ -53,7 +53,7 @@ size = Vector2(256, 128)
 [node name="level" type="Node2D" unique_id=482031804 node_paths=PackedStringArray("win_conditions") groups=["LevelController"]]
 script = ExtResource("1_r2c4r")
 level_moves = 5
-win_conditions = [NodePath("TileMapLayer/WC-1")]
+win_conditions = [NodePath("TileMapLayer/WC-1"), NodePath("TileMapLayer/WC-2")]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=798576406]
 visible = false
