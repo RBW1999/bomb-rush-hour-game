@@ -1,21 +1,21 @@
-[gd_scene format=3 uid="uid://csmcfjofef0c7"]
+[gd_scene format=3 uid="uid://3qdq86ua8373"]
 
-[ext_resource type="Script" uid="uid://bao3orgbp3yon" path="res://scenes/BlockController.gd" id="1_16v74"]
-[ext_resource type="Texture2D" uid="uid://bpm4vwdvsovbf" path="res://assets/Block-2-1.png" id="2_bfp0e"]
+[ext_resource type="Script" uid="uid://bao3orgbp3yon" path="res://scenes/BlockController.gd" id="1_p8top"]
+[ext_resource type="Texture2D" uid="uid://c4l5i77bkk57c" path="res://assets/Block-3-1.png" id="2_p8top"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0j7jy"]
 size = Vector2(246, 120)
 
 [node name="Block2By1" type="CharacterBody2D" unique_id=555982744]
 input_pickable = true
-script = ExtResource("1_16v74")
+script = ExtResource("1_p8top")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=650577550]
 position = Vector2(128, 64)
 shape = SubResource("RectangleShape2D_0j7jy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=743130014]
-position = Vector2(128, 64)
-texture = ExtResource("2_bfp0e")
+position = Vector2(192, 64)
+texture = ExtResource("2_p8top")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ckxkattvavt7g"]
+
+[ext_resource type="Script" uid="uid://bao3orgbp3yon" path="res://scenes/BlockController.gd" id="1_kofew"]
+[ext_resource type="Texture2D" uid="uid://c0ma80xriifod" path="res://assets/Block-2-1-Connected.png" id="2_kofew"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0j7jy"]
+size = Vector2(246, 120)
+
+[node name="BlockLinked" type="CharacterBody2D" unique_id=555982744]
+input_pickable = true
+script = ExtResource("1_kofew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=650577550]
+position = Vector2(128, 64)
+shape = SubResource("RectangleShape2D_0j7jy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=743130014]
+position = Vector2(128, 64)
+texture = ExtResource("2_kofew")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1474650799]
+position = Vector2(256, 448)
+shape = SubResource("RectangleShape2D_0j7jy")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1864586618]
+position = Vector2(256, 448)
+texture = ExtResource("2_kofew")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

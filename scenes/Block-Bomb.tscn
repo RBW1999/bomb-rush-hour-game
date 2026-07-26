@@ -10,12 +10,12 @@ size = Vector2(246, 120)
 input_pickable = true
 script = ExtResource("1_vtixm")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=743130014]
-position = Vector2(128, 64)
-texture = ExtResource("2_lvvji")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=650577550]
 position = Vector2(128, 64)
 shape = SubResource("RectangleShape2D_0j7jy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=743130014]
+position = Vector2(128, 64)
+texture = ExtResource("2_lvvji")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

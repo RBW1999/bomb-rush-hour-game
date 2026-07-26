@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="bomb-rush-hour"
-run/main_scene="uid://deevll2buabok"
+run/main_scene="uid://c7umn3t2y3guh"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

@@ -1,17 +1,16 @@
 [gd_scene format=4 uid="uid://deevll2buabok"]
 
-[ext_resource type="Script" uid="uid://fubd41rv8qgr" path="res://scenes/level-controller.gd" id="1_mx8sn"]
-[ext_resource type="Texture2D" uid="uid://b5xkjrgandhu8" path="res://assets/Background.png" id="2_8c41q"]
-[ext_resource type="PackedScene" uid="uid://cnet2q1qnym66" path="res://scenes/Block-1by2.tscn" id="2_w7c3h"]
-[ext_resource type="PackedScene" uid="uid://csmcfjofef0c7" path="res://scenes/Block-2by1.tscn" id="3_w8frs"]
-[ext_resource type="Texture2D" uid="uid://b28wn7lq3wg2m" path="res://assets/Texture Atlas.png" id="4_mx8sn"]
-[ext_resource type="PackedScene" uid="uid://bq5v2yjx4erry" path="res://scenes/Block-Bomb.tscn" id="5_2r41h"]
-[ext_resource type="Script" uid="uid://e7jmw3it4yw4" path="res://scenes/win_condition.gd" id="6_b121j"]
-[ext_resource type="PackedScene" uid="uid://emlcfdar1522" path="res://scenes/level_end_ui.tscn" id="8_8c41q"]
-[ext_resource type="PackedScene" uid="uid://4gkeb4ba1e2v" path="res://scenes/move_countdown_ui.tscn" id="9_olg7q"]
+[ext_resource type="Script" uid="uid://fubd41rv8qgr" path="res://scenes/level-controller.gd" id="1_4alon"]
+[ext_resource type="Texture2D" uid="uid://b5xkjrgandhu8" path="res://assets/Background.png" id="2_qn4nk"]
+[ext_resource type="Texture2D" uid="uid://b28wn7lq3wg2m" path="res://assets/Texture Atlas.png" id="3_mhoui"]
+[ext_resource type="PackedScene" uid="uid://csmcfjofef0c7" path="res://scenes/Block-2by1.tscn" id="5_1vnh8"]
+[ext_resource type="PackedScene" uid="uid://bq5v2yjx4erry" path="res://scenes/Block-Bomb.tscn" id="6_3by0x"]
+[ext_resource type="Script" uid="uid://e7jmw3it4yw4" path="res://scenes/win_condition.gd" id="7_y1mjo"]
+[ext_resource type="PackedScene" uid="uid://emlcfdar1522" path="res://scenes/level_end_ui.tscn" id="8_a5ewl"]
+[ext_resource type="PackedScene" uid="uid://4gkeb4ba1e2v" path="res://scenes/move_countdown_ui.tscn" id="9_kimd1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppgk2"]
-texture = ExtResource("4_mx8sn")
+texture = ExtResource("3_mhoui")
 texture_region_size = Vector2i(128, 128)
 0:2/0 = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-53, -55, 51, -54, 52, 55, -54, 55)
@@ -52,14 +51,14 @@ sources/1 = SubResource("TileSetAtlasSource_ppgk2")
 size = Vector2(256, 128)
 
 [node name="level" type="Node2D" unique_id=482031804 node_paths=PackedStringArray("win_conditions") groups=["LevelController"]]
-script = ExtResource("1_mx8sn")
+script = ExtResource("1_4alon")
 level_moves = 3
 win_conditions = [NodePath("TileMapLayer/WinCondition")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1687474873]
 position = Vector2(960, 550)
 scale = Vector2(1.0858904, 1.0858904)
-texture = ExtResource("2_8c41q")
+texture = ExtResource("2_qn4nk")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=798576406]
 visible = false
@@ -78,30 +77,28 @@ mouse_filter = 2
 color = Color(0.10747976, 0.10747973, 0.10747973, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1635196397]
-position = Vector2(169, 82)
+position = Vector2(192, 64)
 tile_map_data = PackedByteArray("AAAAAAAAAQAAAAIAAAAAAAEAAQABAAEAAAAAAAIAAQABAAEAAAAAAAMAAQABAAEAAAAAAAQAAQABAAEAAAABAAAAAQACAAEAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAACAAAAAQACAAEAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAAAAQACAAEAAAADAAEAAQAAAAAAAAADAAIAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAAAAQACAAEAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAAAAQADAAIAAAAFAAEAAQADAAEAAAAFAAIAAQACAAMAAAAFAAMAAQACAAAAAAAFAAQAAQAAAAMAAAAAAAYAAQACAAIAAAABAAYAAQAAAAEAAAACAAYAAQAAAAEAAAADAAYAAQAAAAEAAAAEAAYAAQAAAAEAAAAFAAYAAQABAAIAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQADAAEAAAAAAAUAAQABAAEAAAAGAAMAAQACAAAAAAAHAAMAAQADAAEAAAAGAAQAAQAAAAEAAAAHAAQAAQABAAIAAAAHAAIAAQADAAIAAAAGAAIAAQACAAEAAAA=")
 tile_set = SubResource("TileSet_0j7jy")
 rendering_quadrant_size = 128
 physics_quadrant_size = 128
 
-[node name="Block1By2-" parent="TileMapLayer" unique_id=1373487729 instance=ExtResource("2_w7c3h")]
-position = Vector2(128, 128)
-
-[node name="Block1By2-2" parent="TileMapLayer" unique_id=1301902877 instance=ExtResource("2_w7c3h")]
-position = Vector2(384, 384)
-
-[node name="Block2By1" parent="TileMapLayer" unique_id=289182631 instance=ExtResource("3_w8frs")]
+[node name="Block2By1" parent="TileMapLayer" unique_id=289182631 instance=ExtResource("5_1vnh8")]
 position = Vector2(384, 128)
 
-[node name="Block2By2" parent="TileMapLayer" unique_id=1787281041 instance=ExtResource("3_w8frs")]
+[node name="Block2By2" parent="TileMapLayer" unique_id=1787281041 instance=ExtResource("5_1vnh8")]
 position = Vector2(256, 640)
 
-[node name="BlockBomb" parent="TileMapLayer" unique_id=555982744 instance=ExtResource("5_2r41h")]
+[node name="Block2By3" parent="TileMapLayer" unique_id=555982744 instance=ExtResource("5_1vnh8")]
+position = Vector2(512, 384)
+rotation = 1.5707964
+
+[node name="BlockBomb" parent="TileMapLayer" unique_id=1523684634 instance=ExtResource("6_3by0x")]
 position = Vector2(128, 384)
 
 [node name="WinCondition" type="Area2D" parent="TileMapLayer" unique_id=821645839 node_paths=PackedStringArray("target")]
 position = Vector2(644.99994, 386.25)
-script = ExtResource("6_b121j")
+script = ExtResource("7_y1mjo")
 target = NodePath("../BlockBomb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/WinCondition" unique_id=2115516007]
@@ -123,7 +120,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="LevelEnd" parent="UI" unique_id=1965265778 instance=ExtResource("8_8c41q")]
+[node name="LevelEnd" parent="UI" unique_id=1965265778 instance=ExtResource("8_a5ewl")]
 unique_name_in_owner = true
 layout_mode = 1
 offset_left = -308.0
@@ -131,7 +128,7 @@ offset_top = -207.0
 offset_right = 278.0
 offset_bottom = 198.0
 
-[node name="MoveCountdown" parent="UI" unique_id=982783656 instance=ExtResource("9_olg7q")]
+[node name="MoveCountdown" parent="UI" unique_id=982783656 instance=ExtResource("9_kimd1")]
 unique_name_in_owner = true
 layout_mode = 1
 offset_left = -583.0

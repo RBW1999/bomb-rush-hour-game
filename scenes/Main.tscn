@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://c7umn3t2y3guh"]
+
+[ext_resource type="Script" uid="uid://bka4hc5nty8b8" path="res://scenes/game-controller.gd" id="1_elqb8"]
+[ext_resource type="PackedScene" uid="uid://deevll2buabok" path="res://scenes/levels/level-1.tscn" id="2_0bbpv"]
+[ext_resource type="PackedScene" uid="uid://bg0mogicmyxf3" path="res://scenes/level_select_button.tscn" id="3_0bbpv"]
+[ext_resource type="PackedScene" uid="uid://cyyxwr7cmajgv" path="res://scenes/levels/level-2.tscn" id="3_rarhs"]
+[ext_resource type="PackedScene" uid="uid://crf3s5jb75f7t" path="res://scenes/levels/level-3.tscn" id="4_vcsgt"]
+
+[node name="Main" type="Node2D" unique_id=255308076]
+script = ExtResource("1_elqb8")
+levels = Array[PackedScene]([ExtResource("2_0bbpv"), ExtResource("3_rarhs"), ExtResource("4_vcsgt")])
+
+[node name="MainMenu" type="Control" parent="." unique_id=1972490692]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu" unique_id=1846286060]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -33.0
+offset_right = 23.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="B_Start" type="Button" parent="MainMenu/VBoxContainer" unique_id=771128292]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Start"
+
+[node name="L_LevelSelect" type="Label" parent="MainMenu/VBoxContainer" unique_id=470237200]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Select Level"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MainMenu/VBoxContainer" unique_id=411296301]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 3
+
+[node name="Button2" parent="MainMenu/VBoxContainer/GridContainer" unique_id=74673580 instance=ExtResource("3_0bbpv")]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="MainMenu/VBoxContainer/B_Start" to="." method="_on_b_start_pressed"]
