@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://emlcfdar1522"]
+
+[ext_resource type="Script" uid="uid://k6v7rlgrpty8" path="res://scenes/level_end_UI_controller.gd" id="1_agyl0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mx8sn"]
+content_margin_left = 40.0
+content_margin_top = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="LevelEnd" type="PanelContainer" unique_id=1965265778]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mx8sn")
+script = ExtResource("1_agyl0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=276143074]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="L_Lost" type="Label" parent="VBoxContainer" unique_id=1275188231]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Booom!
+The Bomb exploded!
+"
+horizontal_alignment = 1
+
+[node name="L_Won" type="Label" parent="VBoxContainer" unique_id=1893861544]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "You diffused the
+ Bomb in time"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=426026705]
+layout_mode = 2
+
+[node name="L_MovesLeft" type="Label" parent="VBoxContainer" unique_id=652089031]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Moves Left: 0"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=90823158]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1478562247]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="B_Restart" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1639537665]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+
+[node name="B_Next" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=166831338]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Next Level"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/B_Restart" to="." method="_on_b_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/B_Next" to="." method="_on_b_next_pressed"]

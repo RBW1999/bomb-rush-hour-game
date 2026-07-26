@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://4gkeb4ba1e2v"]
+
+[ext_resource type="Script" uid="uid://rabca3oub7t" path="res://scenes/MoveController.gd" id="1_u8h3i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2uawf"]
+bg_color = Color(0.76085454, 0.116711594, 0.050187856, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.43529412, 0.12156863, 0.12156863, 1)
+
+[sub_resource type="Theme" id="Theme_qafkn"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_2uawf")
+
+[node name="MoveCountdown" type="PanelContainer" unique_id=982783656]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -571.0
+offset_top = -355.0
+offset_right = -116.0
+offset_bottom = -78.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = SubResource("Theme_qafkn")
+script = ExtResource("1_u8h3i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=414673885]
+layout_mode = 2
+
+[node name="Moves_Text" type="Label" parent="VBoxContainer" unique_id=1023359154]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Moves Left:"
+horizontal_alignment = 1
+
+[node name="Moves_Int" type="Label" parent="VBoxContainer" unique_id=1888735024]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "0"
+horizontal_alignment = 1

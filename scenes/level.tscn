@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://csmcfjofef0c7" path="res://scenes/Block-2by1.tscn" id="3_w8frs"]
 [ext_resource type="Texture2D" uid="uid://b28wn7lq3wg2m" path="res://assets/Texture Atlas.png" id="4_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://bq5v2yjx4erry" path="res://scenes/Block-Bomb.tscn" id="5_2r41h"]
-[ext_resource type="Script" uid="uid://k6v7rlgrpty8" path="res://scenes/level_end_UI_controller.gd" id="5_ppgk2"]
 [ext_resource type="Script" uid="uid://e7jmw3it4yw4" path="res://scenes/win_condition.gd" id="6_b121j"]
-[ext_resource type="Script" uid="uid://rabca3oub7t" path="res://scenes/MoveController.gd" id="7_klq6b"]
+[ext_resource type="PackedScene" uid="uid://emlcfdar1522" path="res://scenes/level_end_ui.tscn" id="8_8c41q"]
+[ext_resource type="PackedScene" uid="uid://4gkeb4ba1e2v" path="res://scenes/move_countdown_ui.tscn" id="9_olg7q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppgk2"]
 texture = ExtResource("4_mx8sn")
@@ -50,29 +50,6 @@ sources/1 = SubResource("TileSetAtlasSource_ppgk2")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qafkn"]
 size = Vector2(256, 128)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mx8sn"]
-content_margin_left = 40.0
-content_margin_top = 40.0
-content_margin_right = 40.0
-content_margin_bottom = 40.0
-bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2uawf"]
-bg_color = Color(0.76085454, 0.116711594, 0.050187856, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.43529412, 0.12156863, 0.12156863, 1)
-
-[sub_resource type="Theme" id="Theme_qafkn"]
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_2uawf")
 
 [node name="level" type="Node2D" unique_id=482031804 node_paths=PackedStringArray("win_conditions") groups=["LevelController"]]
 script = ExtResource("1_mx8sn")
@@ -146,108 +123,21 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="LevelEnd" type="PanelContainer" parent="UI" unique_id=1684192149]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mx8sn")
-script = ExtResource("5_ppgk2")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/LevelEnd" unique_id=1718606771]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="L_Lost" type="Label" parent="UI/LevelEnd/VBoxContainer" unique_id=317902189]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Booom!
-The Bomb exploded!
-"
-horizontal_alignment = 1
-
-[node name="L_Won" type="Label" parent="UI/LevelEnd/VBoxContainer" unique_id=1688737873]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "You diffused the
- Bomb in time"
-horizontal_alignment = 1
-
-[node name="HSeparator2" type="HSeparator" parent="UI/LevelEnd/VBoxContainer" unique_id=2018636070]
-layout_mode = 2
-
-[node name="L_MovesLeft" type="Label" parent="UI/LevelEnd/VBoxContainer" unique_id=1029778686]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Moves Left: 0"
-horizontal_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="UI/LevelEnd/VBoxContainer" unique_id=1788835364]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/LevelEnd/VBoxContainer" unique_id=1867754062]
-layout_mode = 2
-theme_override_constants/separation = 10
-alignment = 1
-
-[node name="B_Restart" type="Button" parent="UI/LevelEnd/VBoxContainer/HBoxContainer" unique_id=2094036556]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Restart"
-
-[node name="B_Next" type="Button" parent="UI/LevelEnd/VBoxContainer/HBoxContainer" unique_id=456190457]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Next Level"
-
-[node name="MoveCountdown" type="PanelContainer" parent="UI" unique_id=907666285]
+[node name="LevelEnd" parent="UI" unique_id=1965265778 instance=ExtResource("8_8c41q")]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -571.0
-offset_top = -355.0
-offset_right = -116.0
-offset_bottom = -78.0
-grow_horizontal = 0
-grow_vertical = 2
-theme = SubResource("Theme_qafkn")
-script = ExtResource("7_klq6b")
+offset_left = -308.0
+offset_top = -207.0
+offset_right = 278.0
+offset_bottom = 198.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MoveCountdown" unique_id=716267390]
-layout_mode = 2
-
-[node name="Moves_Text" type="Label" parent="UI/MoveCountdown/VBoxContainer" unique_id=651152185]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Moves Left:"
-horizontal_alignment = 1
-
-[node name="Moves_Int" type="Label" parent="UI/MoveCountdown/VBoxContainer" unique_id=744301457]
+[node name="MoveCountdown" parent="UI" unique_id=982783656 instance=ExtResource("9_olg7q")]
 unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 128
-text = "0"
-horizontal_alignment = 1
+layout_mode = 1
+offset_left = -583.0
+offset_top = -351.0
+offset_right = -128.0
+offset_bottom = -74.0
 
 [connection signal="area_entered" from="TileMapLayer/WinCondition" to="TileMapLayer/WinCondition" method="_on_area_entered"]
 [connection signal="body_entered" from="TileMapLayer/WinCondition" to="TileMapLayer/WinCondition" method="_on_body_entered"]
-[connection signal="pressed" from="UI/LevelEnd/VBoxContainer/HBoxContainer/B_Restart" to="UI/LevelEnd" method="_on_b_restart_pressed"]
-[connection signal="pressed" from="UI/LevelEnd/VBoxContainer/HBoxContainer/B_Next" to="UI/LevelEnd" method="_on_b_next_pressed"]
