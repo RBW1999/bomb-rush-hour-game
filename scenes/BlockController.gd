@@ -16,9 +16,10 @@ signal block_moved
 func _ready() -> void:
 	start_pos = position
 	
-	var levelControllerNodes : Array[Node] = get_tree().get_nodes_in_group("LevelController")
-	assert(levelControllerNodes.size() == 1, "More then one LevelController found")
-	level_controller = get_tree().get_nodes_in_group("LevelController")[0]
+	# get Level Controller | two parents up
+	var levelController: Node = get_parent().get_parent()
+	assert(levelController is LevelController, "ParentParent is no LevelController")
+	level_controller = levelController as LevelController
 	
 	level_controller.register_block(self)
 

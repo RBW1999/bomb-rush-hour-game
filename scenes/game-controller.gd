@@ -14,19 +14,22 @@ func _ready() -> void :
 func on_next_level() -> void :
 	level_idx += 1
 	
+	# load main menu if no more levels exist
 	if (level_idx >= levels.size()):
 		main_menu.visible = true
 		loaded_level.queue_free()
+		return
 	
 	load_level(level_idx)
 
 func load_level(idx : int) -> void :
 	
+	# unload current level
 	if (loaded_level != null) :
 		loaded_level.next_level.disconnect(on_next_level)
 		loaded_level.queue_free()
-		return
 	
+	# load new level
 	loaded_level = levels[idx].instantiate()
 	add_child(loaded_level)
 	loaded_level.next_level.connect(on_next_level)

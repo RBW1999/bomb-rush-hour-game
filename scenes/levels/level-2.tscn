@@ -93,6 +93,7 @@ position = Vector2(512, 640)
 [node name="Block2By3" parent="TileMapLayer" unique_id=1954103871 instance=ExtResource("5_vlvhc")]
 position = Vector2(384, 128)
 rotation = 1.5707964
+movement_direction = "Y"
 
 [node name="BB-1" parent="TileMapLayer" unique_id=1897279880 instance=ExtResource("6_fhmvk")]
 position = Vector2(256, 512)
