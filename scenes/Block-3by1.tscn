@@ -5,14 +5,14 @@
 [ext_resource type="AudioStream" uid="uid://cjsmu17gavsse" path="res://assets/sounds/bomb-beep-cutted.mp3" id="3_x0img"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0j7jy"]
-size = Vector2(246, 120)
+size = Vector2(374, 120)
 
 [node name="Block2By1" type="CharacterBody2D" unique_id=555982744]
 input_pickable = true
 script = ExtResource("1_p8top")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=650577550]
-position = Vector2(128, 64)
+position = Vector2(192, 64)
 shape = SubResource("RectangleShape2D_0j7jy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=743130014]
