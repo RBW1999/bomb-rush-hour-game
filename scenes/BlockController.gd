@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export_enum("X","Y") var movement_direction : String = "X"
 @onready var asp_sfx_bomb_beep: AudioStreamPlayer = %ASP_SFX_BombBeep
-
+@export var components : Array[Node]
 
 const GRID_SIZE : int = 128
 
@@ -85,3 +85,7 @@ func snap_to_position() -> void:
 
 func reset() -> void:
 	position = start_pos
+	
+	for comp in components :
+		if (comp.has_method("on_reset")) :
+			comp.on_reset()

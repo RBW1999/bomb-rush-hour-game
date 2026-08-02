@@ -8,9 +8,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0j7jy"]
 size = Vector2(246, 120)
 
-[node name="Block2By1" type="CharacterBody2D" unique_id=555982744]
+[node name="Block2By1" type="CharacterBody2D" unique_id=555982744 node_paths=PackedStringArray("components")]
 input_pickable = true
 script = ExtResource("1_4031e")
+components = [NodePath("Sprite2D/L_Timer")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=650577550]
 position = Vector2(128, 64)
